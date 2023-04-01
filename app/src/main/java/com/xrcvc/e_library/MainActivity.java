@@ -7,13 +7,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -26,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
-
     //    Mai Web Page
     WebView webView;
     WebSettings webSettings;
 
-//    Firebase
+    ProgressBar progressBar;
+    ImageView reload;
 
     private void webpageloadcontent(String url) {
 
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             webView.loadUrl(url);
         }
     }
+
 
 
     public boolean CheckInternent() {
