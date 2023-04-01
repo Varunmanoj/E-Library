@@ -59,13 +59,11 @@
 
     <!--    Exit App-->
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/exit"
             android:icon="@drawable/exitapp"
             android:title="@string/Exitapp">
 
         </item>
-
     </group>
 </menu>

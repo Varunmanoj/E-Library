@@ -1,26 +1,21 @@
 package com.xrcvc.e_library;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -58,8 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean CheckInternent() {
         try {
+
+//            Use the Connectivity Manager Class to get Network Info from Android device
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo info = null;
+//            Check if the device is connected to internet through Wi-Fi or Mobile Network
             if (connectivityManager != null) {
                 info = connectivityManager.getActiveNetworkInfo();
             }
@@ -75,14 +73,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Link XML and Java
+
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);
         webView = findViewById(R.id.webView);
 
 
 //        Toggle Button for Navigation
+//        Create the Toggle button to Show and Hide the handburger Menu
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_menu, R.string.close_menu);
+
+        //        Link the Drawer Layout from XML witht he toggle Button in the Action Bar
         drawerLayout.addDrawerListener(toggle);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
         toggle.syncState();
 
         // to make the Navigation drawer icon always appear on the action bar// to make the Navigation drawer icon always appear on the action bar
@@ -93,7 +99,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
-                    Toast.makeText(MainActivity.this, "Click on Home", Toast.LENGTH_SHORT).show();
+                    if (CheckInternent()){
+                        startActivity(new Intent(this,MainActivity.class));
+                    }
+                    else {
+                        startActivity(new Intent(this,NoInternent.class));
+                    }
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.latest_arrival:
@@ -104,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "All Categories", Toast.LENGTH_SHORT).show();
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
+                case  R.id.exit:
+//                    Finish is used to quit the app
+                    finish();
             }
 
 

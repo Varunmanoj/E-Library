@@ -1,20 +1,28 @@
 package com.xrcvc.e_library;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class NoInternent extends AppCompatActivity {
     Button Gohome;
+
+    //    Navigation Menu Items
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle toggle;
+
     public boolean CheckInternent() {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -78,5 +86,23 @@ public class NoInternent extends AppCompatActivity {
                 NoInternetDialog();
             }
         });
+
+        drawerLayout = findViewById(R.id.draw_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+    }
+    @Override
+    public void onBackPressed() {
+        if (CheckInternent()) {
+            startActivity(new Intent(NoInternent.this, MainActivity.class));
+        }
+        else {
+            NoInternetDialog();
+        }if (CheckInternent()) {
+            startActivity(new Intent(NoInternent.this, MainActivity.class));
+        }
+        else {
+            NoInternetDialog();
+        }
     }
 }
