@@ -122,4 +122,16 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/");
+    }
 }
