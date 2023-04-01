@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     WebSettings webSettings;
 
 
-
     private void webpageloadcontent(String url) {
 
 //                Load webpage in the app and not in an external web browser
@@ -43,12 +41,10 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         if (CheckInternent()) {
             webView.loadUrl(url);
-        }
-        else {
-            startActivity(new Intent(this,NoInternent.class));
+        } else {
+            startActivity(new Intent(this, NoInternent.class));
         }
     }
-
 
 
     public boolean CheckInternent() {
@@ -98,25 +94,74 @@ public class MainActivity extends AppCompatActivity {
 //        Set Item listener
         navigationView.setNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
+//                Check which menu item is clicked and then open the corresponding activity depending on wheather Internet Connection is present or not
                 case R.id.home:
-                    if (CheckInternent()){
-                        startActivity(new Intent(this,MainActivity.class));
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, MainActivity.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
                     }
-                    else {
-                        startActivity(new Intent(this,NoInternent.class));
-                    }
+//                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.latest_arrival:
-                    Toast.makeText(MainActivity.this, "latest arrivals", Toast.LENGTH_SHORT).show();
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, LatestArrival.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+//                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.all_categories:
-                    Toast.makeText(MainActivity.this, "All Categories", Toast.LENGTH_SHORT).show();
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, AllCategory.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
-                case  R.id.exit:
+                case R.id.dashboard:
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, AccountDashboard.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.help:
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, help.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.disclaimer:
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, Disclaimer.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.privacy:
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, PrivacyPolicy.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.exit:
 //                    Finish is used to quit the app
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     finish();
             }
 
@@ -124,8 +169,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        if (!CheckInternent()){
-            startActivity(new Intent(this,NoInternent.class));
+        if (!CheckInternent()) {
+            startActivity(new Intent(this, NoInternent.class));
         }
     }
 

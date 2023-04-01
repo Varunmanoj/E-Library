@@ -17,4 +17,5 @@
     <string name="no_internet">No Internet  Connection</string>
     <string name="goHomeBTN">Go Home</string>
     <string name="Exitapp">Exit</string>
+    <string name="Disclaimer">Disclaimer</string>
 </resources>

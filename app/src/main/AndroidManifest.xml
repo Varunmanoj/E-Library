@@ -18,30 +18,33 @@
         android:theme="@style/Theme.ELibrary"
         tools:targetApi="31">
         <activity
-            android:name=".Disclaimer"
+            android:name=".help"
             android:exported="false" />
+        <activity
+            android:name=".Disclaimer"
+            android:exported="false"
+            android:label="@string/Disclaimer" />
         <activity
             android:name=".PrivacyPolicy"
             android:exported="false"
-            android:label="@string/privacy_poicy"
-            />
+            android:label="@string/privacy_poicy" />
         <activity
             android:name=".AccountDashboard"
             android:exported="false"
-            android:label="@string/admin_dashboard_menu_item"/>
+            android:label="@string/admin_dashboard_menu_item" />
         <activity
             android:name=".AllCategory"
             android:exported="false"
-            android:label="@string/all_categories"/>
+            android:label="@string/all_categories" />
         <activity
             android:name=".LatestArrival"
             android:exported="false"
-            android:label="@string/latest_arrival"/>
+            android:label="@string/latest_arrival" />
         <activity
             android:name=".NoInternent"
             android:exported="false"
-            android:noHistory="true"
-            android:label="@string/no_internet"/>
+            android:label="@string/no_internet"
+            android:noHistory="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
