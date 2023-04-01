@@ -4,6 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/page_background_colour"
     tools:context=".NoInternent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="177dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/nointernettext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wifi_off" />
+
+    <TextView
+        android:id="@+id/nointernettext"
+        android:layout_width="371dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="285dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="9dp"
+        android:selectAllOnFocus="true"
+        android:text="@string/no_internet"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:textIsSelectable="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gohome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/gohome"
+        android:layout_width="287dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="237dp"
+        android:text="@string/goHomeBTN"
+        app:icon="@drawable/home"
+        app:iconPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nointernettext"
+        app:layout_constraintTop_toBottomOf="@+id/nointernettext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

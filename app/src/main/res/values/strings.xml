@@ -14,4 +14,7 @@
     <string name="all_categories">All Categories</string>
     <string name="site_logo">XRCVC and St. Xaviers Logo</string>
     <string name="reload">Reload Site</string>
+    <string name="no_internet">No Internet  Connection</string>
+    <string name="goHomeBTN">Go Home</string>
+    <string name="Exitapp">Exit</string>
 </resources>

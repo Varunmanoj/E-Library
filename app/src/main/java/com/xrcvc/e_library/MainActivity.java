@@ -7,10 +7,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -34,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     WebView webView;
     WebSettings webSettings;
 
-    ProgressBar progressBar;
-    ImageView reload;
+
 
     private void webpageloadcontent(String url) {
 
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         if (CheckInternent()) {
             webView.loadUrl(url);
+        }
+        else {
+            startActivity(new Intent(this,NoInternent.class));
         }
     }
 
@@ -106,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+        if (!CheckInternent()){
+            startActivity(new Intent(this,NoInternent.class));
+        }
     }
 
     @Override
