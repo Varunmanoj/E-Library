@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="@string/home_menu_item" />
+
+        <item
+            android:id="@+id/latest_arrival"
+            android:icon="@drawable/latest_arrivals"
+            android:title="@string/latest_arrival" />
+
+        <item
+            android:id="@+id/all_categories"
+            android:icon="@drawable/all_categories"
+            android:title="@string/all_categories" />
+    </group>
+
+    <!--Admin Menu Section-->
+    <group android:checkableBehavior="single">
+        <item android:title="@string/Admin_menu_section_header">
+            <menu>
+                <item
+                    android:id="@+id/dashboard"
+                    android:icon="@drawable/dashboard"
+                    android:title="@string/admin_dashboard_menu_item">
+
+                </item>
+            </menu>
+        </item>
+    </group>
+
+
+    <!--    Help Section-->
+    <group android:checkableBehavior="single">
+        <item android:title="@string/help_and_feedback_menu_item">
+            <menu>
+                <item
+                    android:id="@+id/help"
+                    android:icon="@drawable/help"
+                    android:title="@string/help_menu_item">
+
+                </item>
+
+                <item
+                    android:id="@+id/disclaimer"
+                    android:title="@string/disclaimer_menu_item">
+
+                </item>
+                <item
+                    android:id="@+id/privacy"
+                    android:title="@string/privacy_poicy">
+
+                </item>
+            </menu>
+        </item>
+    </group>
+</menu>

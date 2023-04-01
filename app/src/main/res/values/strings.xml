@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">E Book Library</string>
+    <string name="xrcvc_and_st_logo">XRCVC and St. Xavier\'s Logo</string>
+    <string name="open_menu">Open Menu</string>
+    <string name="close_menu">close Menu</string>
+    <string name="home_menu_item">Home</string>
+    <string name="help_and_feedback_menu_item">Help and Feedback</string>
+    <string name="Admin_menu_section_header">My Account</string>
+    <string name="admin_dashboard_menu_item">Dashboard</string>
+    <string name="help_menu_item">help</string>
+    <string name="privacy_poicy">Privacy Poicy</string>
+    <string name="disclaimer_menu_item">Disclaimer</string>
+    <string name="latest_arrival">Latest Arivals</string>
+    <string name="all_categories">All Categories</string>
+    <string name="site_logo">XRCVC and St. Xaviers Logo</string>
+</resources>
