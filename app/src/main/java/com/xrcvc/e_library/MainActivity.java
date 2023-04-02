@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     WebView webView;
     WebSettings webSettings;
 
+//    WebURl
+    String WebUrl="https://xrcvc-e-library.varunmanojkumar.in/";
 
     private void webpageloadcontent(String url) {
 
@@ -200,12 +202,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/");
+        webpageloadcontent(WebUrl);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/");
+        webpageloadcontent(WebUrl);
     }
 }

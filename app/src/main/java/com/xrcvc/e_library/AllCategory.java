@@ -30,6 +30,9 @@ public class AllCategory extends AppCompatActivity {
     WebView webView;
     WebSettings webSettings;
 
+//    WebUrl
+    String WebURl="https://xrcvc-e-library.varunmanojkumar.in/all-categories/";
+
 
     private void webpageloadcontent(String url) {
 
@@ -195,12 +198,12 @@ public class AllCategory extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/all-categories/");
+        webpageloadcontent(WebURl);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        webpageloadcontent("https://xrcvc-e-library.varunmanojkumar.in/all-categories/");
+        webpageloadcontent(WebURl);
     }
 }
