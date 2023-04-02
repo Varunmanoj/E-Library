@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 //        Create the Toggle button to Show and Hide the handburger Menu
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_menu, R.string.close_menu);
 
-        //        Link the Drawer Layout from XML witht he toggle Button in the Action Bar
+        //        Link the Drawer Layout from XML with he toggle Button in the Action Bar
         drawerLayout.addDrawerListener(toggle);
 
         // pass the Open and Close toggle for the drawer layout listener
