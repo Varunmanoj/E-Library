@@ -41,7 +41,16 @@ public class PrivacyPolicy extends AppCompatActivity {
     private void webpageloadcontent(String url) {
 
 //                Load webpage in the app and not in an external web browser
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new WebViewClient() {
+            //            Show Error Page in case of any error
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                startActivity(new Intent(PrivacyPolicy.this,NoInternent.class));
+            }
+        });
+
+
+
 //        Show a Progress Bar indicating the loading Status of the Website till the Website is fully loaded
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
@@ -53,6 +62,7 @@ public class PrivacyPolicy extends AppCompatActivity {
 //                    Hide the Progress bar once the page is fully loaded
                     progressBar.setVisibility(View.GONE);
                 }
+
             }
         });
 
@@ -161,15 +171,7 @@ public class PrivacyPolicy extends AppCompatActivity {
                     //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
-                case R.id.disclaimer:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, Disclaimer.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
+
                 case R.id.privacy:
                     if (CheckInternent()) {
                         startActivity(new Intent(this, PrivacyPolicy.class));
@@ -178,12 +180,6 @@ public class PrivacyPolicy extends AppCompatActivity {
                     }
                     //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.exit:
-//                    Finish is used to quit the app
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    finish();
                     break;
             }
 

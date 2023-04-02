@@ -44,11 +44,6 @@
                 </item>
 
                 <item
-                    android:id="@+id/disclaimer"
-                    android:title="@string/disclaimer_menu_item">
-
-                </item>
-                <item
                     android:id="@+id/privacy"
                     android:title="@string/privacy_poicy">
 
@@ -58,12 +53,5 @@
     </group>
 
     <!--    Exit App-->
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/exit"
-            android:icon="@drawable/exitapp"
-            android:title="@string/Exitapp">
-
-        </item>
-    </group>
+    <group android:checkableBehavior="single"/>
 </menu>

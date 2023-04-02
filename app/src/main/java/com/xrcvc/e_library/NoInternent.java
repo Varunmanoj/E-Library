@@ -47,7 +47,8 @@ public class NoInternent extends AppCompatActivity {
             return false;
         }
     }
-    public  void NoInternetDialog(){
+
+    public void NoInternetDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         // Set the message show for the Alert time
@@ -80,7 +81,8 @@ public class NoInternent extends AppCompatActivity {
 
     private void OpenNetworkSetings() {
 //        OPen Android Network Settings
-        startActivity (new Intent (android.provider.Settings.ACTION_WIRELESS_SETTINGS));startActivity (new Intent (android.provider.Settings.ACTION_WIRELESS_SETTINGS));
+        startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
+        startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
     }
 
 
@@ -114,12 +116,11 @@ public class NoInternent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_internent);
 
-        Gohome=findViewById(R.id.gohome);
+        Gohome = findViewById(R.id.gohome);
         Gohome.setOnClickListener(v -> {
             if (CheckInternent()) {
                 startActivity(new Intent(NoInternent.this, MainActivity.class));
-            }
-            else {
+            } else {
                 PlayNotifySound();
                 NoInternetDialog();
             }
@@ -129,8 +130,6 @@ public class NoInternent extends AppCompatActivity {
         createsoundpool();
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);
-
-
 
 
         //        Toggle Button for Navigation
@@ -150,82 +149,68 @@ public class NoInternent extends AppCompatActivity {
 
 //        Set Item listener
         navigationView.setNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
+                    switch (item.getItemId()) {
 //                Check which menu item is clicked and then open the corresponding activity depending on wheather Internet Connection is present or not
-                case R.id.home:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, MainActivity.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
+                        case R.id.home:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, MainActivity.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
 //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.latest_arrival:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, LatestArrival.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
+                        case R.id.latest_arrival:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, LatestArrival.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
 //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.all_categories:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, AllCategory.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.dashboard:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, AccountDashboard.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.help:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, help.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.disclaimer:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, Disclaimer.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.privacy:
-                    if (CheckInternent()) {
-                        startActivity(new Intent(this, PrivacyPolicy.class));
-                    } else {
-                        startActivity(new Intent(this, NoInternent.class));
-                    }
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    break;
-                case R.id.exit:
-//                    Finish is used to quit the app
-                    //                    Close the Navigation Drawer once a particular item is clicked
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    finish();
-                    break;
-            }
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
+                        case R.id.all_categories:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, AllCategory.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
+                            //                    Close the Navigation Drawer once a particular item is clicked
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
+                        case R.id.dashboard:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, AccountDashboard.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
+                            //                    Close the Navigation Drawer once a particular item is clicked
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
+                        case R.id.help:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, help.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
+                            //                    Close the Navigation Drawer once a particular item is clicked
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
 
+                        case R.id.privacy:
+                            if (CheckInternent()) {
+                                startActivity(new Intent(this, PrivacyPolicy.class));
+                            } else {
+                                startActivity(new Intent(this, NoInternent.class));
+                            }
+                            //                    Close the Navigation Drawer once a particular item is clicked
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            break;
 
-            return true;
-        });
+                    }
+                    return true;
+                }
+        );
 
     }
 
@@ -237,15 +222,14 @@ public class NoInternent extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else if (CheckInternent()) {
+        } else if (CheckInternent()) {
             startActivity(new Intent(NoInternent.this, MainActivity.class));
-        }
-        else {
+        } else {
             PlayNotifySound();
             NoInternetDialog();
         }

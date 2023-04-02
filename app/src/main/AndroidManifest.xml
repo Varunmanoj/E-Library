@@ -21,10 +21,6 @@
             android:name=".help"
             android:exported="false" />
         <activity
-            android:name=".Disclaimer"
-            android:exported="false"
-            android:label="@string/Disclaimer" />
-        <activity
             android:name=".PrivacyPolicy"
             android:exported="false"
             android:label="@string/privacy_poicy" />
