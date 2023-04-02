@@ -46,6 +46,15 @@ public class LatestArrival extends AppCompatActivity {
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 startActivity(new Intent(LatestArrival.this,NoInternent.class));
             }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                // Retrieve the page title from the Web View
+                String pageTitle = view.getTitle();
+
+                // Set the title of the action bar
+                getSupportActionBar().setTitle(pageTitle);
+            }
+
         });
 
 
