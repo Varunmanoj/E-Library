@@ -165,6 +165,7 @@ public class Disclaimer extends AppCompatActivity {
                     //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     finish();
+                    break;
             }
 
 
