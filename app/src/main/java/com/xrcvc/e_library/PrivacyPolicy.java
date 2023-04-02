@@ -6,9 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -32,12 +35,27 @@ public class PrivacyPolicy extends AppCompatActivity {
 
     //    WebUrl
     String WebURl="https://xrcvc-e-library.varunmanojkumar.in/privacy-policy/";
+    ProgressBar progressBar;
 
 
     private void webpageloadcontent(String url) {
 
 //                Load webpage in the app and not in an external web browser
         webView.setWebViewClient(new WebViewClient());
+//        Show a Progress Bar indicating the loading Status of the Website till the Website is fully loaded
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onProgressChanged(WebView view, int progress) {
+//                Show Progressbar till the loading has not reached 100%
+                if (progress<100){
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+                else {
+//                    Hide the Progress bar once the page is fully loaded
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
 //        Turn Javascript on in the web page
         webSettings = webView.getSettings();
@@ -76,6 +94,7 @@ public class PrivacyPolicy extends AppCompatActivity {
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);
         webView = findViewById(R.id.webView);
+        progressBar=findViewById(R.id.progressBar);
 
 
 //        Toggle Button for Navigation
