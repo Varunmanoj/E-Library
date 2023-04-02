@@ -6,9 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -33,10 +36,23 @@ public class MainActivity extends AppCompatActivity {
 //    WebURl
     String WebUrl="https://xrcvc-e-library.varunmanojkumar.in/";
 
+    ProgressBar progressBar;
+
     private void webpageloadcontent(String url) {
 
 //                Load webpage in the app and not in an external web browser
         webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onProgressChanged(WebView view, int progress) {
+                if (progress<100){
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+            });
+
 
 //        Turn Javascript on in the web page
         webSettings = webView.getSettings();
@@ -71,13 +87,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle(R.string.home_menu_item);
 
 //        Link XML and Java
 
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);
         webView = findViewById(R.id.webView);
-
+        progressBar=findViewById(R.id.progressBar);
 
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu

@@ -6,9 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -29,7 +32,7 @@ public class AllCategory extends AppCompatActivity {
     //    Mai Web Page
     WebView webView;
     WebSettings webSettings;
-
+    ProgressBar progressBar;
 //    WebUrl
     String WebURl="https://xrcvc-e-library.varunmanojkumar.in/all-categories/";
 
@@ -38,6 +41,17 @@ public class AllCategory extends AppCompatActivity {
 
 //                Load webpage in the app and not in an external web browser
         webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onProgressChanged(WebView view, int progress) {
+                if (progress<100){
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
 //        Turn Javascript on in the web page
         webSettings = webView.getSettings();
