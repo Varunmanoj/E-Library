@@ -20,6 +20,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Objects;
 
@@ -37,6 +38,8 @@ public class AccountDashboard extends AppCompatActivity {
     String WebUrl = "https://xrcvc-e-library.varunmanojkumar.in/my-account/dashboard/";
 
     ProgressBar progressBar;
+
+    FirebaseAnalytics firebaseAnalytics;
 
     private void webpageloadcontent(String url) {
 
@@ -109,6 +112,7 @@ public class AccountDashboard extends AppCompatActivity {
 
         //        Link XML and Java
         progressBar = findViewById(R.id.progressBar);
+        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);

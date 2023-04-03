@@ -19,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Objects;
 
@@ -34,6 +35,7 @@ public class NoInternent extends AppCompatActivity {
     SoundPool soundPool;
     int notifysound;
 
+    FirebaseAnalytics firebaseAnalytics;
 
     public boolean CheckInternent() {
         try {
@@ -115,6 +117,8 @@ public class NoInternent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_internent);
+
+        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
         Gohome = findViewById(R.id.gohome);
         Gohome.setOnClickListener(v -> {

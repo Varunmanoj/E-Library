@@ -20,6 +20,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Objects;
 
@@ -36,6 +37,7 @@ public class AllCategory extends AppCompatActivity {
 //    WebUrl
     String WebURl="https://xrcvc-e-library.varunmanojkumar.in/all-categories/";
 
+    FirebaseAnalytics firebaseAnalytics;
 
     private void webpageloadcontent(String url) {
 
@@ -113,6 +115,7 @@ public class AllCategory extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         webView = findViewById(R.id.webView);
         progressBar=findViewById(R.id.progressBar);
+        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu
