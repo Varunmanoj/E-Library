@@ -48,8 +48,8 @@
         android:enabled="true"
         android:icon="@drawable/dashboard"
         android:shortcutId="Dashboard"
-        android:shortcutLongLabel="@drawable/dashboard"
-        android:shortcutShortLabel="@drawable/dashboard">
+        android:shortcutLongLabel="@string/admin_dashboard_menu_item"
+        android:shortcutShortLabel="@string/admin_dashboard_menu_item">
 
         <intent
             android:action="android.intent.action.VIEW"
