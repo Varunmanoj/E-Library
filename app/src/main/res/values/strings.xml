@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">E Book Library</string>
+    <string name="app_name" translatable="false">XRCVC E Book Library</string>
     <string name="xrcvc_and_st_logo">XRCVC and St. Xavier\'s Logo</string>
     <string name="open_menu">Open Menu</string>
     <string name="close_menu">close Menu</string>
@@ -19,5 +19,5 @@
     <string name="Exitapp">Exit</string>
     <string name="Disclaimer">Disclaimer</string>
     <string name="ErrorPage">Error Page</string>
-    <string name="invalidURL">The URL specified is Invalid</string>
+    <string name="invalidURL">This Page is currently Unavailable</string>
 </resources>
