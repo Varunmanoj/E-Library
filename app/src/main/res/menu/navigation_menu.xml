@@ -45,6 +45,7 @@
 
                 <item
                     android:id="@+id/privacy"
+                    android:icon="@drawable/lock"
                     android:title="@string/privacy_poicy">
 
                 </item>
