@@ -42,4 +42,18 @@
             android:targetClass="com.xrcvc.e_library.AllCategory"
             android:targetPackage="com.xrcvc.e_library" />
     </shortcut>
+
+    <!--    Account Dashboard  Activity-->
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/dashboard"
+        android:shortcutId="Dashboard"
+        android:shortcutLongLabel="@drawable/dashboard"
+        android:shortcutShortLabel="@drawable/dashboard">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.xrcvc.e_library.AccountDashboard"
+            android:targetPackage="com.xrcvc.e_library" />
+    </shortcut>
 </shortcuts>

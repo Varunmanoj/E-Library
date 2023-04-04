@@ -2,9 +2,11 @@ package com.xrcvc.e_library;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -21,6 +23,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
@@ -34,10 +41,28 @@ public class AllCategory extends AppCompatActivity {
     WebView webView;
     WebSettings webSettings;
     ProgressBar progressBar;
-//    WebUrl
-    String WebURl="https://xrcvc-e-library.varunmanojkumar.in/all-categories/";
 
     FirebaseAnalytics firebaseAnalytics;
+    DatabaseReference mDatabase;
+
+    public void FetchURL() {
+        // Retrieve the URL from the Firebase Realtime Database
+        mDatabase.child("AllCategories").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String url = dataSnapshot.getValue(String.class);
+                if (url != null) {
+                    // Load the URL into the WebView
+                    webpageloadcontent(url);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("No Data", "onCancelled", databaseError.toException());
+            }
+
+        });
+    }
 
     private void webpageloadcontent(String url) {
 
@@ -46,29 +71,35 @@ public class AllCategory extends AppCompatActivity {
             //            Show Error Page in case of any error
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                startActivity(new Intent(AllCategory.this,NoInternent.class));
+                startActivity(new Intent(getApplicationContext(), NoInternent.class));
             }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                // Perform any actions you want when the page starts loading
+                super.onPageStarted(view, url, favicon);
+                Objects.requireNonNull(getSupportActionBar()).setTitle("Loading");
+            }
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 // Retrieve the page title from the Web View
                 String pageTitle = view.getTitle();
 
                 // Set the title of the action bar
-                getSupportActionBar().setTitle(pageTitle);
+                Objects.requireNonNull(getSupportActionBar()).setTitle(pageTitle);
             }
 
         });
-
 
 
 //        Show a Progress Bar indicating the loading Status of the Website till the Website is fully loaded
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
 //                Show Progressbar till the loading has not reached 100%
-                if (progress<100){
+                if (progress < 100) {
                     progressBar.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
 //                    Hide the Progress bar once the page is fully loaded
                     progressBar.setVisibility(View.GONE);
                 }
@@ -86,6 +117,7 @@ public class AllCategory extends AppCompatActivity {
             startActivity(new Intent(this, NoInternent.class));
         }
     }
+
 
 
     public boolean CheckInternent() {
@@ -116,6 +148,9 @@ public class AllCategory extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         progressBar=findViewById(R.id.progressBar);
         firebaseAnalytics= FirebaseAnalytics.getInstance(this);
+
+        // Initialize the Firebase Realtime Database
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu
@@ -224,12 +259,12 @@ public class AllCategory extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        webpageloadcontent(WebURl);
+        FetchURL();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        webpageloadcontent(WebURl);
+        FetchURL();
     }
 }
