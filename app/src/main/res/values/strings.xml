@@ -18,4 +18,6 @@
     <string name="goHomeBTN">Go Home</string>
     <string name="Exitapp">Exit</string>
     <string name="Disclaimer">Disclaimer</string>
+    <string name="ErrorPage">Error Page</string>
+    <string name="invalidURL">The URL specified is Invalid</string>
 </resources>

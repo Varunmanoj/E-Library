@@ -74,7 +74,7 @@ public class LatestArrival extends AppCompatActivity {
             //            Show Error Page in case of any error
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                startActivity(new Intent(getApplicationContext(), NoInternent.class));
+                startActivity(new Intent(getApplicationContext(), ErrorPage.class));
             }
 
             @Override

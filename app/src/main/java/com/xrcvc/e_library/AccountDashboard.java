@@ -74,7 +74,7 @@ public class AccountDashboard extends AppCompatActivity {
             //            Show Error Page in case of any error
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                startActivity(new Intent(AccountDashboard.this, NoInternent.class));
+                startActivity(new Intent(getApplicationContext(), ErrorPage.class));
             }
 
             @Override

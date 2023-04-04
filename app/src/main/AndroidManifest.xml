@@ -18,8 +18,12 @@
         android:theme="@style/Theme.ELibrary"
         tools:targetApi="31">
         <activity
-            android:name=".help"
+            android:name=".ErrorPage"
             android:exported="false" />
+        <activity
+            android:name=".help"
+            android:exported="false"
+            android:label="@string/ErrorPage"/>
         <activity
             android:name=".PrivacyPolicy"
             android:exported="false"
@@ -49,7 +53,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--            App Shortcuts-->
+            <!-- App Shortcuts -->
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
