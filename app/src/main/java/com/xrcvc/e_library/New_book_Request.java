@@ -199,6 +199,15 @@ public class New_book_Request extends AppCompatActivity {
                     //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
+                case R.id.new_book_request:
+                    if (CheckInternent()) {
+                        startActivity(new Intent(this, New_book_Request.class));
+                    } else {
+                        startActivity(new Intent(this, NoInternent.class));
+                    }
+                    //                    Close the Navigation Drawer once a particular item is clicked
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
                 case R.id.dashboard:
                     if (CheckInternent()) {
                         startActivity(new Intent(this, AccountDashboard.class));
