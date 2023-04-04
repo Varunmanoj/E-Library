@@ -20,4 +20,5 @@
     <string name="Disclaimer">Disclaimer</string>
     <string name="ErrorPage">Error Page</string>
     <string name="invalidURL">This Page is currently Unavailable</string>
+    <string name="New_Book_Request">New Book request</string>
 </resources>

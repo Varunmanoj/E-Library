@@ -163,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
                 // Initialize the Firebase Realtime Database
                 mDatabase = FirebaseDatabase.getInstance().getReference();
 
+//                Set the title of the Action Bar to Home before fetching the Website title
+                Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
+
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu
                 toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_menu, R.string.close_menu);
