@@ -40,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
     //    Mai Web Page
     WebView webView;
     WebSettings webSettings;
-
-    //    WebURl
-
-
     ProgressBar progressBar;
 
     //    Firebase
@@ -157,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Initialize the Firebase Realtime Database
                 mDatabase = FirebaseDatabase.getInstance().getReference();
+
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu
                 toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_menu, R.string.close_menu);
