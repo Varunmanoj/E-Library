@@ -15,6 +15,12 @@
             android:id="@+id/all_categories"
             android:icon="@drawable/all_categories"
             android:title="@string/all_categories" />
+        <item
+            android:id="@+id/new_book_request"
+            android:icon="@drawable/new_book"
+            android:title="@string/New_Book_Request" />
+
+
     </group>
 
     <!--Admin Menu Section-->
