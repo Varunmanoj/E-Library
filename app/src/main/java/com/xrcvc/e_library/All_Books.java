@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class help extends AppCompatActivity {
+public class All_Books extends AppCompatActivity {
     //    Navigation Menu Items
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -40,17 +40,14 @@ public class help extends AppCompatActivity {
     //    Mai Web Page
     WebView webView;
     WebSettings webSettings;
-
-
     ProgressBar progressBar;
 
-    //    Firebase
     FirebaseAnalytics firebaseAnalytics;
     DatabaseReference mDatabase;
 
     public void FetchURL() {
         // Retrieve the URL from the Firebase Realtime Database
-        mDatabase.child("help").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("AllBooks").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String url = dataSnapshot.getValue(String.class);
@@ -142,20 +139,19 @@ public class help extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_all_books);
 
         //        Link XML and Java
-        progressBar = findViewById(R.id.progressBar);
-        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
         drawerLayout = findViewById(R.id.draw_layout);
         navigationView = findViewById(R.id.navigation_view);
         webView = findViewById(R.id.webView);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar=findViewById(R.id.progressBar);
+        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
         // Initialize the Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
-//
+
 //        Toggle Button for Navigation
 //        Create the Toggle button to Show and Hide the handburger Menu
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_menu, R.string.close_menu);
@@ -193,7 +189,6 @@ public class help extends AppCompatActivity {
 //                    Close the Navigation Drawer once a particular item is clicked
                     drawerLayout.closeDrawer(GravityCompat.START);
                     break;
-
                 case R.id.latest_arrival:
                     if (CheckInternent()) {
                         startActivity(new Intent(this, LatestArrival.class));

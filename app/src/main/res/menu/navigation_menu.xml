@@ -7,6 +7,10 @@
             android:title="@string/home_menu_item" />
 
         <item
+            android:id="@+id/all_books"
+            android:icon="@drawable/all_book"
+            android:title="@string/all_books" />
+        <item
             android:id="@+id/latest_arrival"
             android:icon="@drawable/latest_arrivals"
             android:title="@string/latest_arrival" />

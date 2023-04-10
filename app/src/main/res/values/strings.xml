@@ -21,4 +21,5 @@
     <string name="ErrorPage">Error Page</string>
     <string name="invalidURL">This Page is currently Unavailable</string>
     <string name="New_Book_Request">New Book request</string>
+    <string name="all_books">All Books</string>
 </resources>
